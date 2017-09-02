@@ -1,0 +1,37 @@
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+
+@import 'lumen/variables';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import '~bootstrap-datetime-picker/css/bootstrap-datetimepicker.min.css';
+
+.main-block {
+    margin-top: 65px;
+}
+
+.footer {
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px solid $gray-light;
+    color: $gray-light;
+}
+
+.hotel-form-container {
+    #map {
+        width: 100%;
+        height: 300px;
+        margin: 10px 0 30px;
+    }
+}
+
+.hotel-list-container {
+    #map {
+        height: 100%;
+        min-height: 300px;
+    }
+
+    .highlight, .list-group-item:hover {
+        background-color: desaturate(yellow, 50%);
+        color: white;
+        cursor: pointer;
+    }
+}

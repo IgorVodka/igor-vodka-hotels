@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hotel Edit{% endblock %}
+
+{% form_theme form 'form/fields.html.twig' %}
+
+{% block body %}
+    <div class="hotel-form-container col-md-8 col-xs-12">
+        <h1>Edit Hotel #{{ hotel.id }}</h1>
+
+        {{ form_start(form) }}
+            {{ form_row(form.name, {"label": "Hotel name"}) }}
+            {{ form_row(form.price, {"label": "Price per night"}) }}
+            {{ form_row(form.address) }}
+
+            <div id="map"
+                data-latitude="{{ hotel.latitude|number_format(8, '.', '') }}"
+                data-longitude="{{ hotel.longitude|number_format(8, '.', '') }}"></div>
+
+            <a href="{{ path('list-hotels') }}" type="submit" class="btn btn-lg btn-default">
+            	Back
+            </a>
+            <button type="submit" value="saveAndReturn" class="btn btn-lg btn-primary">
+            	<span class="glyphicon glyphicon-ok"></span>
+            	Save and return
+            </button>
+            <a class="btn btn-lg btn-danger pull-right"
+                href="{{ path('delete-hotel', {id: hotel.id}) }}">
+                Delete
+            </a>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/js/hotel_edit.js') }}"></script>
+
+    {{ parent() }}
+{% endblock %}

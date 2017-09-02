@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ hotel.name }}{% endblock %}
+
+{% block body %}
+    <div class="hotel-form-container col-md-8 col-xs-12">
+        <h1>{{ hotel.name }}</h1>
+        <p>It's the best hotel of {{ hotel.address }}!</p>
+        <p>
+            There {{ booking.people == 1 ? 'is' : 'are' }}
+            {{ booking.people }} of you!
+            The price will be ${{ hotel.price|number_format }} per night,
+            {{ nights }} {{ nights == 1 ? 'night' : 'nights' }} will cost
+            <strong>${{ total|number_format }} in total</strong>.
+        </p>
+        <a href="{{ path('list-hotels') }}">Come back</a>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
