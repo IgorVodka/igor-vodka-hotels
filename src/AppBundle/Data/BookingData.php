@@ -63,7 +63,8 @@ class BookingData {
         }
     }
 
-    public function getPeople() {
+    public function getPeople()
+    {
         return $this->people;
     }
 
